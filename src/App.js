@@ -7,8 +7,8 @@ function App() {
   return (
     <div className="App">
       <CurrentPrice />
-      <Balance currency="eur" />
-      <Balance currency="btc" />
+      <Balance currency="EUR" />
+      <Balance currency="BTC" />
     </div>
   );
 }

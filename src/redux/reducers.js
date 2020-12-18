@@ -12,6 +12,21 @@ export const price = (state = {}, action) => {
   }
 }
 
+export const trade = (state = { balance: '' }, action) => {
+  switch (action.type) {
+    case 'UPDATE_BALANCE':
+      return {
+        ...state,
+        balance: {
+          ...state.balance,
+          [action.currency]: action.amount
+        }
+      }
+    default:
+      return state
+  }
+}
+
 export default combineReducers({
-  price,
+  price, trade
 })

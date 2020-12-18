@@ -1,15 +1,10 @@
 import React from 'react'
 import getBalance from './../../request/trade/getBalance'
 
-class CurrentBalance extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      amount: 0,
-      currency: ''
-    }
-  }
+import { connect } from 'react-redux'
+import { updateBalance } from './../../redux/actions'
 
+class CurrentBalance extends React.Component {
   componentDidMount() {
     this.updateBalance(
       this.props.currency
@@ -18,20 +13,30 @@ class CurrentBalance extends React.Component {
 
   updateBalance = (currency) => {
     getBalance(currency)
-      .then(result => this.setState({
-        balance: result.data.amount,
-        currency: result.data.currency
-      }))
+      .then(result => 
+        this.props.updateBalance(
+          result.data.amount,
+          result.data.currency
+        )
+      )
       .catch(err => {})
   }
 
   render() {
     return (
       <div>
-        <span>{ this.state.balance } { this.state.currency }</span>
+        <span>{ this.props.balance[this.props.currency].toFixed(8) } { this.props.currency }</span>
       </div>
     )
   }
 }
 
-export default CurrentBalance
+const mapStateProps = state => ({
+  balance: state.trade.balance
+})
+
+const mapDispatchToProps = {
+  updateBalance,
+}
+
+export default connect(mapStateProps, mapDispatchToProps)(CurrentBalance)
