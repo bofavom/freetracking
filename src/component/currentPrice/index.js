@@ -1,33 +1,35 @@
 import React from 'react'
 import getPrice from './../../request/price/getPrice'
 
-class CurrentPrice extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      price: 0
-    }
-  }
+import { connect } from 'react-redux'
+import { updatePrice } from './../../redux/actions'
 
+class CurrentPrice extends React.Component {
   componentDidMount() {
     this.updatePrice()
   }
 
   updatePrice = () => {
     getPrice()
-      .then(result => this.setState({
-        price: result.data.price
-      }))
+      .then(result => this.props.updatePrice(result.data.price))
       .catch(err => {})
   }
 
   render() {
     return (
       <div>
-        The current price for one unit is { this.state.price }€
+        The current price for one unit is { this.props.price }€
       </div>
     )
   }
 }
 
-export default CurrentPrice
+const mapStateToProps = state => ({
+  price: state.price.price,
+})
+
+const mapDispatchToProps = {
+  updatePrice,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CurrentPrice)
