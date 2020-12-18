@@ -25,14 +25,18 @@ class CurrentBalance extends React.Component {
   render() {
     return (
       <div>
-        <span>{ this.props.balance[this.props.currency].toFixed(8) } { this.props.currency }</span>
+        <span>{ this.props.balance[this.props.currency] ? this.props.balance[this.props.currency].toFixed(8) : '' } { this.props.currency } </span>
+        { this.props.currency === 'EUR' ? null : <span> 
+          ({ (Number(this.props.balance[this.props.currency]) * Number(this.props.price)).toFixed(8) } EUR)
+        </span> }
       </div>
     )
   }
 }
 
 const mapStateProps = state => ({
-  balance: state.trade.balance
+  balance: state.trade.balance,
+  price: state.price.price
 })
 
 const mapDispatchToProps = {
