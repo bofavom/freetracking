@@ -15,3 +15,8 @@ export const updateSpent = (amount, buyCurrency, sellCurrency) => ({
   buyCurrency: buyCurrency,
   sellCurrency: sellCurrency
 })
+
+export const updateTrades = (trades) => ({
+  type: 'UPDATE_TRADES',
+  trades: trades
+})

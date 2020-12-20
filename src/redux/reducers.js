@@ -15,6 +15,7 @@ export const price = (state = {}, action) => {
 const tradeDefaultState = {
   balance: '',
   spent: '',
+  trades: [],
 }
 
 export const trade = (state = tradeDefaultState, action) => {
@@ -34,6 +35,11 @@ export const trade = (state = tradeDefaultState, action) => {
           ...state.spent,
           [`${action.buyCurrency}${action.sellCurrency}`]: action.amount
         }
+      }
+    case 'UPDATE_TRADES': 
+      return {
+        ...state,
+        trades: action.trades
       }
     default:
       return state
