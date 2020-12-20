@@ -5,6 +5,7 @@ import Balance from './component/balance'
 import Spent from './component/spent'
 import Average from './component/average'
 import Trades from './component/trades'
+import TradesBalance from './component/tradesBalance'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Spent buyCurrency="BTC" sellCurrency="EUR" />
       <Average currency="BTC" />
       <Trades currency="BTC" />
+      <TradesBalance />
     </div>
   );
 }

@@ -26,7 +26,7 @@ class Trades extends React.Component {
       <div>
         {
           this.props.trades.map(trade => {
-            return <p>
+            return <p key={trade._id}>
               { JSON.stringify(trade) }
             </p>
           })
