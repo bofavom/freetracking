@@ -12,7 +12,12 @@ export const price = (state = {}, action) => {
   }
 }
 
-export const trade = (state = { balance: '' }, action) => {
+const tradeDefaultState = {
+  balance: '',
+  spent: '',
+}
+
+export const trade = (state = tradeDefaultState, action) => {
   switch (action.type) {
     case 'UPDATE_BALANCE':
       return {
@@ -20,6 +25,14 @@ export const trade = (state = { balance: '' }, action) => {
         balance: {
           ...state.balance,
           [action.currency]: action.amount
+        }
+      }
+    case 'UPDATE_SPENT':
+      return {
+        ...state,
+        spent: {
+          ...state.spent,
+          [`${action.buyCurrency}${action.sellCurrency}`]: action.amount
         }
       }
     default:

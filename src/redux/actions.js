@@ -8,3 +8,10 @@ export const updateBalance = (amount, currency) => ({
   amount: amount,
   currency: currency
 })
+
+export const updateSpent = (amount, buyCurrency, sellCurrency) => ({
+  type: 'UPDATE_SPENT',
+  amount: amount,
+  buyCurrency: buyCurrency,
+  sellCurrency: sellCurrency
+})

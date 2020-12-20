@@ -18,7 +18,7 @@ class CurrentPrice extends React.Component {
   render() {
     return (
       <div>
-        The current price for one unit is { this.props.price }€
+        The current price for one unit is { this.props.price } EUR
       </div>
     )
   }
