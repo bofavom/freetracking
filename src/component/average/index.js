@@ -2,6 +2,8 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 
+import Typography from '@material-ui/core/Typography'
+
 class Average extends React.Component {
   getAverage = () => 
     Math.abs(this.props.spent[`${this.props.currency}EUR`]) / this.props.balance[this.props.currency]
@@ -9,7 +11,10 @@ class Average extends React.Component {
   render() {
     return (
       <div>
-        <span> The average purchase price is { this.getAverage().toFixed(8) } EUR</span>
+        <Typography gutterBottom variant="h5" component="h2">
+          Average price { this.props.currency }
+        </Typography>
+        <span> { this.getAverage().toFixed(8) } EUR</span>
       </div>
     )
   }

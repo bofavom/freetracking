@@ -4,6 +4,8 @@ import getPrice from './../../request/price/getPrice'
 import { connect } from 'react-redux'
 import { updatePrice } from './../../redux/actions'
 
+import Typography from '@material-ui/core/Typography'
+
 class CurrentPrice extends React.Component {
   componentDidMount() {
     this.updatePrice()
@@ -18,7 +20,9 @@ class CurrentPrice extends React.Component {
   render() {
     return (
       <div>
-        The current price for one unit is { this.props.price } EUR
+        <Typography variant="h4" gutterBottom>
+          1 unit of sound money worth {this.props.price} EUR
+        </Typography>
       </div>
     )
   }
