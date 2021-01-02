@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { API_URL } from './../../const'
 
 export default () => 
-  axios.get('http://localhost:15646/api/price?pair=BTCEUR')
+  axios.get(`${API_URL}api/price?pair=BTCEUR`)

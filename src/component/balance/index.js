@@ -31,9 +31,6 @@ class CurrentBalance extends React.Component {
           Balance {this.props.currency}
         </Typography>
         <span>{ this.props.balance[this.props.currency] ? this.props.balance[this.props.currency].toFixed(8) : '' } { this.props.currency } </span>
-        { this.props.currency === 'EUR' ? null : <span> 
-          ({ (Number(this.props.balance[this.props.currency]) * Number(this.props.price)).toFixed(2) } EUR)
-        </span> }
       </div>
     )
   }
