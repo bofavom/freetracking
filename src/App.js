@@ -8,6 +8,9 @@ import CurrentPrice from './component/currentPrice'
 import Balance from './component/balance'
 import Spent from './component/spent'
 import Average from './component/average'
+import FirstTrade from './component/firstTrade'
+import LastTrade from './component/lastTrade'
+import TotalTrades from './component/totalTrades'
 import Trades from './component/trades'
 import TradesBalance from './component/tradesBalance'
 
@@ -58,8 +61,26 @@ function App() {
             <Average currency="BTC" />
           </Paper>
         </Grid>
+
+        <Grid item xs={12} lg={3}>
+          <Paper className={classes.paper}>
+            <FirstTrade />
+          </Paper>
+        </Grid>
+
+        <Grid item xs={12} lg={3}>
+          <Paper className={classes.paper}>
+            <LastTrade />
+          </Paper>
+        </Grid>
+
+        <Grid item xs={12} lg={3}>
+          <Paper className={classes.paper}>
+            <TotalTrades />
+          </Paper>
+        </Grid>
       
-      {/* <Trades currency="BTC" /> */}
+      <Trades currency="BTC" />
       {/* <TradesBalance /> */}
     </Grid>
     </div>
