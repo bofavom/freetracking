@@ -4,7 +4,7 @@ import getBalance from './../../request/trade/getBalance'
 import { connect } from 'react-redux'
 import { updateBalance } from './../../redux/actions'
 
-import Typography from '@material-ui/core/Typography'
+import Box from './../box'
 
 class CurrentBalance extends React.Component {
   componentDidMount() {
@@ -26,12 +26,10 @@ class CurrentBalance extends React.Component {
 
   render() {
     return (
-      <div>
-        <Typography gutterBottom variant="h5" component="h2">
-          Balance {this.props.currency}
-        </Typography>
-        <span>{ this.props.balance[this.props.currency] ? this.props.balance[this.props.currency].toFixed(8) : '' } { this.props.currency } </span>
-      </div>
+      <Box 
+        title={ `Balance ${this.props.currency}` }
+        text={ `${ this.props.balance[this.props.currency] ? this.props.balance[this.props.currency].toFixed(8) : 0 } ${ this.props.currency }` }
+      />
     )
   }
 }

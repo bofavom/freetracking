@@ -21,7 +21,7 @@ class CurrentPrice extends React.Component {
     return (
       <div>
         <Typography variant="h4" gutterBottom>
-          1 unit of sound money worth {this.props.price} EUR
+          1 unit of sound money is worth {this.props.price} EUR
         </Typography>
       </div>
     )

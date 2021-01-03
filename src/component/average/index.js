@@ -2,7 +2,7 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 
-import Typography from '@material-ui/core/Typography'
+import Box from './../box'
 
 class Average extends React.Component {
   getAverage = () => 
@@ -10,12 +10,10 @@ class Average extends React.Component {
 
   render() {
     return (
-      <div>
-        <Typography gutterBottom variant="h5" component="h2">
-          Average price { this.props.currency }
-        </Typography>
-        <span> { this.getAverage().toFixed(8) } EUR</span>
-      </div>
+      <Box 
+        title={ `Average price ${this.props.currency}` }
+        text={ `${this.getAverage() ? this.getAverage().toFixed(8) : 0 } EUR` }
+      />
     )
   }
 }

@@ -4,7 +4,7 @@ import getSpent from './../../request/trade/getSpent'
 import { connect } from 'react-redux'
 import { updateSpent } from './../../redux/actions'
 
-import Typography from '@material-ui/core/Typography'
+import Box from './../box'
 
 class Spent extends React.Component {
   componentDidMount() {
@@ -28,16 +28,14 @@ class Spent extends React.Component {
 
   render() {
     return (
-      <div>
-        <Typography gutterBottom variant="h5" component="h2">
-          Total spent in { this.props.buyCurrency }
-        </Typography>
-        <span> { 
+      <Box 
+        title={ `Total spent in ${ this.props.buyCurrency }` }
+        text={ `${ 
           this.props.spent[`${this.props.buyCurrency}${this.props.sellCurrency}`] ?
           this.props.spent[`${this.props.buyCurrency}${this.props.sellCurrency}`].toFixed(8) :
-          null
-        } { this.props.sellCurrency } </span>
-      </div>
+          0
+        } ${ this.props.sellCurrency }` }
+      />
     )
   }
 }
