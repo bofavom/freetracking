@@ -80,7 +80,9 @@ function App() {
           </Paper>
         </Grid>
       
-      <Trades currency="BTC" />
+        <Grid item xs={12} lg={12}>
+          <Trades />
+        </Grid>
       {/* <TradesBalance /> */}
     </Grid>
     </div>
