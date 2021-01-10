@@ -81,9 +81,12 @@ function App() {
         </Grid>
       
         <Grid item xs={12} lg={12}>
+          <TradesBalance />
+        </Grid>
+
+        <Grid item xs={12} lg={12}>
           <Trades />
         </Grid>
-      {/* <TradesBalance /> */}
     </Grid>
     </div>
   );

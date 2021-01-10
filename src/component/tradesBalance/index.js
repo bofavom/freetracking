@@ -12,7 +12,6 @@ class TradesBalance extends React.Component {
   render() {
     return (
       <div>
-        <span>TradesBalance { this.getSortedTrades().length }</span>
         {
           this.getSortedTrades().map(trade => 
             <TradeBalance key={trade._id} trade={trade} />
