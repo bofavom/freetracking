@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid'
 import ImportKraken from './kraken'
 import ImportBinance from './binance'
 import ImportCoinTracking from './cointracking'
+import FreeTracking from './freetracking'
 
 function Import() {
   return (
@@ -31,6 +32,10 @@ function Import() {
         <Link to="/import/cointracking">
           <Button>CoinTracking</Button>
         </Link>
+
+        <Link to="/import/freetracking">
+          <Button>FreeTracking</Button>
+        </Link>
       </Grid>
 
       <Grid item xs={12}>
@@ -38,6 +43,7 @@ function Import() {
           <Route path="/import/kraken"><ImportKraken /></Route>
           <Route path="/import/binance"><ImportBinance /></Route>
           <Route path="/import/cointracking"><ImportCoinTracking /></Route>
+          <Route path="/import/freetracking"><FreeTracking /></Route>
         </Switch>
       </Grid>
     </Grid>
